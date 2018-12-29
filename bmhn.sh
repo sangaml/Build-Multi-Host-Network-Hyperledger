@@ -33,22 +33,7 @@ export PATH=${PWD}/../bin:${PWD}:$PATH
 export FABRIC_CFG_PATH=${PWD}
 
 # Ask user for confirmation to proceed
-function askProceed () {
-  read -p "Continue (y/n)? " ans
-  case "$ans" in
-    y|Y )
-      echo "proceeding ..."
-    ;;
-    n|N )
-      echo "exiting..."
-      exit 1
-    ;;
-    * )
-      echo "invalid response"
-      askProceed
-    ;;
-  esac
-}
+
 
 
 
@@ -185,8 +170,6 @@ EXPMODE="Generating certs and genesis block for"
 
 echo "${EXPMODE} with channel '${CHANNEL_NAME}' and CLI timeout of '${CLI_TIMEOUT}'"
 
-# ask for confirmation to proceed
-askProceed
 
 # generate crypto-material
 generateCerts
